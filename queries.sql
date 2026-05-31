@@ -27,13 +27,13 @@ JOIN matches ON matchplayers.matchId = matches.id
 JOIN maps ON maps.id = matches.mapId
 JOIN gamemodes ON maps.gamemodeId = gamemodes.id
 WHERE players.id = 1 
-GROUP BY players.id
+GROUP BY players.id;
 
 --3zobraz počet odehraných zápasů hráčů 
 SELECT players.name, COUNT(*) FROM players
 LEFT JOIN matchplayers ON players.id = matchplayers.playerId
 WHERE players.id = 1
-GROUP BY players.name
+GROUP BY players.name;
 
 --4zobraz top 3 brawlerů dávajících nejvíce damage určitého hráče
 SELECT players.name, brawlers.name, IF(ownedbrawlers.gadget = 1, (brawlers.damage+gadgets.extraDamage), brawlers.damage) AS damage FROM players
@@ -42,19 +42,19 @@ JOIN brawlers ON ownedbrawlers.brawlerId = brawlers.id
 LEFT JOIN gadgets ON gadgets.id = brawlers.gadgetId
 WHERE players.id = 2
 ORDER BY damage DESC
-LIMIT 3
+LIMIT 3;
 
 --5zobraz statistiky určitého hráče s určitým brawlerem
 SELECT players.name AS username, brawlers.name AS brawler, COUNT(*) AS matches_played FROM players 
 LEFT JOIN matchplayers ON matchplayers.playerId = players.id
 RIGHT JOIN brawlers ON matchplayers.brawlerId = brawlers.id
 WHERE players.id = 2 AND brawlers.id = 6
-GROUP BY brawlers.name
+GROUP BY brawlers.name;
 
 --6zobraz seznam uživatelů z určitého klanu
 SELECT players.name FROM `clans`
 JOIN players ON clans.id = players.clanId
-WHERE clans.id = 1
+WHERE clans.id = 1;
 
 --7zobraz top 3 uživatele podle trofejí
 SELECT players.name, SUM(matchplayers.winner*gamemodes.winReward) AS trophies FROM `players`
@@ -64,40 +64,40 @@ LEFT JOIN maps ON maps.id = matches.mapId
 LEFT JOIN gamemodes ON gamemodes.id = maps.gamemodeId
 GROUP BY players.name
 ORDER BY trophies DESC
-LIMIT 3
+LIMIT 3;
 
 --8zobraz klany v určitém regionu
 SELECT name FROM clans
-WHERE countryId = 1
+WHERE countryId = 1;
 
 --9vypočítej winrate určitého uživatele
 SELECT players.name, ((SUM(matchplayers.winner)/COUNT(matchplayers.playerId))*100) AS winrate FROM `matchplayers`
 LEFT JOIN players ON players.id = matchplayers.playerId
 WHERE matchplayers.playerId = 1
-GROUP BY matchplayers.playerId
+GROUP BY matchplayers.playerId;
 
 --10zobraz všechny mapy lidlu
 SELECT name, description FROM `maps`
-WHERE name LIKE "%Lidl%"
+WHERE name LIKE "%Lidl%";
 
 --11zobraz všechny brawlery jejichž jméno začíná na e
 SELECT name FROM `brawlers`
-WHERE name LIKE "e%"
+WHERE name LIKE "e%";
 
 --12zobraz všechny oficiální klany
 SELECT name FROM `clans`
-WHERE name LIKE "%OFICIAL%"
+WHERE name LIKE "%OFICIAL%";
 
 --13zobraz klany s více členy než jen zakladatele
 SELECT clans.name, COUNT(*) as player_count FROM `clans`
 JOIN players ON players.clanId = clans.id
 GROUP BY clans.name
-HAVING (COUNT(*)>1)
+HAVING (COUNT(*)>1);
 
 --14zobraz evropské klany
 SELECT clans.* FROM `clans`
 JOIN countries ON clans.countryId = countries.id
-WHERE isEuropean = 1
+WHERE isEuropean = 1;
 
 --15zobraz všechny zápasy s míčem (góly)
 SELECT matches.*, maps.name AS map, gamemodes.name AS gamemode FROM `matchplayers` 
@@ -105,4 +105,4 @@ LEFT JOIN matches ON matchplayers.matchId = matches.id
 LEFT JOIN maps ON matches.mapId = maps.id
 LEFT JOIN gamemodes ON maps.gamemodeId = gamemodes.id
 WHERE gamemodes.usesGoals = 1
-GROUP BY maps.name
+GROUP BY maps.name;
