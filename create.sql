@@ -3,7 +3,6 @@
 -- http://www.phpmyadmin.net
 --
 -- Počítač: localhost
--- Vytvořeno: Sob 06. čen 2026, 14:24
 -- Verze serveru: 5.7.11
 -- Verze PHP: 5.6.18
 
