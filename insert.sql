@@ -116,102 +116,102 @@ VALUES (1, 8, 150, 2, FALSE),
 (12, 8, 200, 1, FALSE)
 
 --data zápasu ID 1
-INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team)
+INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team, winner)
 VALUES 
-(1, 1, 0, 2, 0, NULL, 8, 1),
-(1, 2, 2, 1, 2000, NULL, 6, 2),
-(1, 3, 0, 1, 0, NULL, 1, 1),
-(1, 9, 4, 6, 0, NULL, 9, 1), 
-(1, 5, 2, 1, 0, NULL, 2, 1),
-(1, 10,2, 0, 0, NULL, 9, 2),
-(1, 7, 0, 0, 0, NULL, 6, 2),
-(1,11, 1, 0, 0, NULL, 1, 2)
+(1, 1, 0, 2, 0, NULL, 8, 1, 0),
+(1, 2, 2, 1, 2000, NULL, 6, 2, 0),
+(1, 3, 0, 1, 0, NULL, 1, 1, 0),
+(1, 9, 4, 6, 0, NULL, 9, 1, 0), 
+(1, 5, 2, 1, 0, NULL, 2, 1, 0),
+(1, 10,2, 0, 0, NULL, 9, 2, 1),
+(1, 7, 0, 0, 0, NULL, 6, 2, 1),
+(1,11, 1, 0, 0, NULL, 1, 2, 1)
 
 --data zápasu ID 2
-INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team)
+INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team, winner)
 VALUES 
-(2, 1, 0, 0, 0, 4, 8, 1),
-(2, 5, 0, 0, 0, 2, 8, 1),
-(2, 2, 0, 0, 0, 5, 2, 2),
-(2, 7, 0, 0, 0, 0, 6, 2)
+(2, 1, 0, 0, 0, 4, 8, 1, 1),
+(2, 5, 0, 0, 0, 2, 8, 1, 1),
+(2, 2, 0, 0, 0, 5, 2, 2, 0),
+(2, 7, 0, 0, 0, 0, 6, 2, 0)
 
 --data zápasu ID 3
-INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team)
+INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team, winner)
 VALUES 
-(3, 1, 0, 0, 0, 1, 8, 1),
-(3, 3, 0, 0, 0, 3, 1, 1),
-(3, 4, 0, 0, 0, 0, 4, 1),
-(3, 5, 0, 0, 0, 0, 5, 1),
-(3, 6, 0, 0, 0, 1, 4, 2),
-(3,11, 0, 0, 0, 1, 4, 2),
-(3,12, 0, 0, 0, 0, 8, 2),
-(3, 8, 0, 0, 0, 1, 5, 2)
+(3, 1, 0, 0, 0, 1, 8, 1, 1),
+(3, 3, 0, 0, 0, 3, 1, 1, 1),
+(3, 4, 0, 0, 0, 0, 4, 1, 1),
+(3, 5, 0, 0, 0, 0, 5, 1, 1),
+(3, 6, 0, 0, 0, 1, 4, 2, 0),
+(3,11, 0, 0, 0, 1, 4, 2, 0),
+(3,12, 0, 0, 0, 0, 8, 2, 0),
+(3, 8, 0, 0, 0, 1, 5, 2, 0)
 
 --data zápasu ID 4
-INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team)
+INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team, winner)
 VALUES 
-(4, 1, 1, 4, 0, NULL, 8, NULL),
-(4, 2, 2, 0, 0, NULL, 6, NULL),
-(4, 3, 0, 1, 0, NULL, 1, NULL), 
-(4, 4, 2, 2, 0, NULL, 4, NULL),
-(4, 5, 0, 1, 0, NULL, 2, NULL),
-(4, 6, 1, 0, 0, NULL, 7, NULL),
-(4, 7, 2, 1, 0, NULL, 6, NULL),
-(4, 8, 1, 2, 0, NULL, 5, NULL),
-(4, 9, 3, 2, 0, NULL, 1, NULL),
-(4,10, 2, 3, 0, NULL, 9, NULL)
+(4, 1, 1, 4, 0, NULL, 8, NULL, 0),
+(4, 2, 2, 0, 0, NULL, 6, NULL, 0),
+(4, 3, 0, 1, 0, NULL, 1, NULL, 1), 
+(4, 4, 2, 2, 0, NULL, 4, NULL, 0),
+(4, 5, 0, 1, 0, NULL, 2, NULL, 1),
+(4, 6, 1, 0, 0, NULL, 7, NULL, 0),
+(4, 7, 2, 1, 0, NULL, 6, NULL, 0),
+(4, 8, 1, 2, 0, NULL, 5, NULL, 0),
+(4, 9, 3, 2, 0, NULL, 1, NULL, 0),
+(4,10, 2, 3, 0, NULL, 9, NULL, 0)
 
 --data zápasu ID 5
-INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team)
+INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team, winner)
 VALUES 
-(5, 1, 1, 1, 0, NULL, 8, 1),
-(5, 2, 1, 1, 0, NULL, 6, 2),
-(5, 3, 3, 4, 0, NULL, 1, 1),
-(5, 9, 4, 6, 0, NULL, 9, 1), 
-(5, 5, 3, 0, 0, NULL, 2, 1),
-(5, 10,2, 1, 0, NULL, 9, 2),
-(5, 7, 0, 2, 0, NULL, 6, 2),
-(5,11, 1, 0, 0, NULL, 1, 2)
+(5, 1, 1, 1, 0, NULL, 8, 1, 0),
+(5, 2, 1, 1, 0, NULL, 6, 2, 1),
+(5, 3, 3, 4, 0, NULL, 1, 1, 0),
+(5, 9, 4, 6, 0, NULL, 9, 1, 0), 
+(5, 5, 3, 0, 0, NULL, 2, 1, 0),
+(5, 10,2, 1, 0, NULL, 9, 2, 1),
+(5, 7, 0, 2, 0, NULL, 6, 2, 1),
+(5,11, 1, 0, 0, NULL, 1, 2, 1)
 
 --data zápasu ID 6
 
-INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team)
+INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team, winner)
 VALUES 
-(6, 1, 1, 4, 0, NULL, 8, NULL),
-(6, 2, 2, 0, 0, NULL, 6, NULL),
-(6, 3, 0, 1, 0, NULL, 1, NULL), 
-(6, 4, 2, 2, 0, NULL, 4, NULL),
-(6, 5, 0, 1, 500, NULL, 2, NULL),
-(6, 6, 1, 0, 0, NULL, 7, NULL),
-(6, 7, 2, 1, 0, NULL, 6, NULL),
-(6, 8, 1, 2, 0, NULL, 5, NULL),
-(6, 9, 3, 0, 0, NULL, 1, NULL),
-(6,10, 2, 1, 0, NULL, 9, NULL),
-(6,11, 0, 4, 0, NULL, 4, NULL),
-(6,12, 0, 0, 0, NULL, 8, NULL)
+(6, 1, 1, 4, 0, NULL, 8, NULL, 0),
+(6, 2, 2, 0, 0, NULL, 6, NULL, 0),
+(6, 3, 0, 1, 0, NULL, 1, NULL, 0), 
+(6, 4, 2, 2, 0, NULL, 4, NULL, 0),
+(6, 5, 0,1,500, NULL, 2, NULL, 0),
+(6, 6, 1, 0, 0, NULL, 7, NULL, 0),
+(6, 7, 2, 1, 0, NULL, 6, NULL, 0),
+(6, 8, 1, 2, 0, NULL, 5, NULL, 0),
+(6, 9, 3, 0, 0, NULL, 1, NULL, 0),
+(6,10, 2, 1, 0, NULL, 9, NULL, 0),
+(6,11, 0, 4, 0, NULL, 4, NULL, 1),
+(6,12, 0, 0, 0, NULL, 8, NULL, 0)
 
 --data zápasu ID 7 
-INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team)
+INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team, winner)
 VALUES 
-(7, 1, 0, 0, 0, 1, 8, 1),
-(7, 3, 0, 0, 0, 0, 1, 1),
-(7, 4, 0, 0, 0, 0, 4, 1),
-(7, 5, 0, 0, 0, 5, 5, 1),
-(7, 6, 0, 0, 0, 0, 4, 2),
-(7,11, 0, 0, 0, 4, 4, 2),
-(7,12, 0, 0, 0, 1, 8, 2),
-(7, 8, 0, 0, 0, 6, 5, 2)
+(7, 1, 0, 0, 0, 1, 8, 1,0),
+(7, 3, 0, 0, 0, 0, 1, 1,0),
+(7, 4, 0, 0, 0, 0, 4, 1,0),
+(7, 5, 0, 0, 0, 5, 5, 1,0),
+(7, 6, 0, 0, 0, 0, 4, 2,1),
+(7,11, 0, 0, 0, 4, 4, 2,1),
+(7,12, 0, 0, 0, 1, 8, 2,1),
+(7, 8, 0, 0, 0, 6, 5, 2,1)
 
 --DATA zápasu 8 (okopčené z 4)
-INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team)
+INSERT INTO matchplayers (matchId, playerId, deaths, kills, healing, goals, brawlerId, team, winner)
 VALUES 
-(8, 1, 1, 4, 0, NULL, 8, NULL),
-(8, 2, 2, 0, 0, NULL, 6, NULL),
-(8, 3, 0, 1, 0, NULL, 1, NULL), 
-(8, 4, 2, 2, 0, NULL, 4, NULL),
-(8, 5, 0, 1, 0, NULL, 2, NULL),
-(8, 6, 1, 0, 0, NULL, 7, NULL),
-(8, 7, 2, 1, 0, NULL, 6, NULL),
-(8, 8, 1, 2, 0, NULL, 5, NULL),
-(8, 9, 3, 2, 0, NULL, 1, NULL),
-(8,10, 2, 3, 0, NULL, 9, NULL)
+(8, 1, 1, 4, 0, NULL, 8, NULL,0),
+(8, 2, 2, 0, 0, NULL, 6, NULL,0),
+(8, 3, 0, 1, 0, NULL, 1, NULL,1), 
+(8, 4, 2, 2, 0, NULL, 4, NULL,0),
+(8, 5, 0, 1, 0, NULL, 2, NULL,1),
+(8, 6, 1, 0, 0, NULL, 7, NULL,0),
+(8, 7, 2, 1, 0, NULL, 6, NULL,0),
+(8, 8, 1, 2, 0, NULL, 5, NULL,0),
+(8, 9, 3, 2, 0, NULL, 1, NULL,0),
+(8,10, 2, 3, 0, NULL, 9, NULL,0)
