@@ -29,7 +29,7 @@ CREATE TABLE `brawlers` (
   `id` int(11) NOT NULL,
   `name` varchar(55) COLLATE utf8mb4_czech_ci NOT NULL,
   `gadgetId` int(11) DEFAULT NULL,
-  `description` varchar(55) COLLATE utf8mb4_czech_ci NOT NULL DEFAULT 'Default description',
+  `description` varchar(255) COLLATE utf8mb4_czech_ci NOT NULL DEFAULT 'Default description',
   `damage` int(11) NOT NULL,
   `healing` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
@@ -113,7 +113,8 @@ CREATE TABLE `matches` (
   `id` int(11) NOT NULL,
   `playedAt` datetime NOT NULL,
   `duration` int(11) NOT NULL,
-  `mapId` int(11) NOT NULL
+  `mapId` int(11) NOT NULL,
+  `winner` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
 
 -- --------------------------------------------------------
@@ -128,7 +129,10 @@ CREATE TABLE `matchplayers` (
   `deaths` int(11) NOT NULL DEFAULT '0',
   `kills` int(11) NOT NULL DEFAULT '0',
   `healing` int(11) NOT NULL DEFAULT '0',
-  `goals` int(11) DEFAULT '0'
+  `goals` int(11) DEFAULT '0',
+  `brawlerId` int(11) NOT NULL,
+  `team` int(11) DEFAULT NULL,
+  `winner` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
 
 -- --------------------------------------------------------
@@ -140,9 +144,8 @@ CREATE TABLE `matchplayers` (
 CREATE TABLE `ownedbrawlers` (
   `playerId` int(11) NOT NULL,
   `brawlerId` int(11) NOT NULL,
-  `trophies` int(11) DEFAULT '0',
-  `level` int(11) DEFAULT '1',
-  `gadget` tinyint(1) DEFAULT '0'
+  `level` int(11) NOT NULL DEFAULT '1',
+  `gadget` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
 
 -- --------------------------------------------------------
@@ -155,7 +158,6 @@ CREATE TABLE `players` (
   `id` int(11) NOT NULL,
   `registeredAt` datetime NOT NULL,
   `name` varchar(55) COLLATE utf8mb4_czech_ci NOT NULL,
-  `trophies` int(11) NOT NULL,
   `level` int(11) NOT NULL,
   `clanId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_czech_ci;
@@ -215,7 +217,8 @@ ALTER TABLE `matches`
 --
 ALTER TABLE `matchplayers`
   ADD PRIMARY KEY (`matchId`,`playerId`),
-  ADD KEY `playerId` (`playerId`);
+  ADD KEY `playerId` (`playerId`),
+  ADD KEY `brawlerId` (`brawlerId`);
 
 --
 -- Klíče pro tabulku `ownedbrawlers`
@@ -239,42 +242,42 @@ ALTER TABLE `players`
 -- AUTO_INCREMENT pro tabulku `brawlers`
 --
 ALTER TABLE `brawlers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pro tabulku `clans`
 --
 ALTER TABLE `clans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pro tabulku `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pro tabulku `gadgets`
 --
 ALTER TABLE `gadgets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pro tabulku `gamemodes`
 --
 ALTER TABLE `gamemodes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pro tabulku `maps`
 --
 ALTER TABLE `maps`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pro tabulku `matches`
 --
 ALTER TABLE `matches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pro tabulku `players`
 --
 ALTER TABLE `players`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- Omezení pro exportované tabulky
 --
@@ -308,7 +311,8 @@ ALTER TABLE `matches`
 --
 ALTER TABLE `matchplayers`
   ADD CONSTRAINT `matchplayers_ibfk_1` FOREIGN KEY (`matchId`) REFERENCES `matches` (`id`),
-  ADD CONSTRAINT `matchplayers_ibfk_2` FOREIGN KEY (`playerId`) REFERENCES `players` (`id`);
+  ADD CONSTRAINT `matchplayers_ibfk_2` FOREIGN KEY (`playerId`) REFERENCES `players` (`id`),
+  ADD CONSTRAINT `matchplayers_ibfk_3` FOREIGN KEY (`brawlerId`) REFERENCES `brawlers` (`id`);
 
 --
 -- Omezení pro tabulku `ownedbrawlers`
