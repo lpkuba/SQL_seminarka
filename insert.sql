@@ -74,7 +74,8 @@ VALUES ("2026-01-13 23:16:21", "lpkuba", 2, 3),
 ("2022-05-31 06:32:58", "schnitzellove7",  1, NULL),
 ("2025-11-13 23:31:41", "cokotycinka3",  2, 8),
 ("2025-11-13 23:35:44", "cokotycinka5",  1, 2),
-("2026-01-13 06:16:21", "fbiagent007",  5, 2)
+("2026-01-13 06:16:21", "fbiagent007",  5, 2),
+('2026-03-12 17:29:06', 'tomascerni', '50', '3')
 
 --zápasy
 INSERT INTO matches(playedAt, duration, mapId, winner) 
