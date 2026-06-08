@@ -63,18 +63,18 @@ VALUES ("Lidl Plaňanská", "prý klidné místo pro nákup o volné hodině", 6
 ("hřiště harvard u krbu", "...", 2)
 
 --hráči
-INSERT INTO players (registeredAt, name, trophies, level, clanId)
-VALUES ("2026-01-13 23:16:21", "lpkuba", 100, 2, 3),
-("1847-10-01 12:21:09", "evasefrnova", 90000, 50, 3), 
-("2026-02-14 14:55:01", "cokotycinka1", 15000, 20, 4),
-("2025-11-23 15:46:22", "cokotycinka2", 100, 1, NULL),
-("2024-04-03 10:30:20", "sinezeng", 9150, 10, 5),
-("2026-08-18 01:06:10", "janoslovelangos", 89500, 49, 6),
-("2026-09-09 19:21:52", "zdendapulec", 10000, 12, 1),
-("2022-05-31 06:32:58", "schnitzellove7", 0, 1, NULL),
-("2025-11-13 23:31:41", "cokotycinka3", 450, 2, 8),
-("2025-11-13 23:35:44", "cokotycinka5", 0, 1, 2),
-("2026-01-13 06:16:21", "fbiagent007", 1000, 5, 2)
+INSERT INTO players (registeredAt, name, level, clanId)
+VALUES ("2026-01-13 23:16:21", "lpkuba", 2, 3),
+("1847-10-01 12:21:09", "evasefrnova", 50, 3), 
+("2026-02-14 14:55:01", "cokotycinka1", 20, 4),
+("2025-11-23 15:46:22", "cokotycinka2", 1, NULL),
+("2024-04-03 10:30:20", "sinezeng", 10, 5),
+("2026-08-18 01:06:10", "janoslovelangos", 49, 6),
+("2026-09-09 19:21:52", "zdendapulec",  12, 1),
+("2022-05-31 06:32:58", "schnitzellove7",  1, NULL),
+("2025-11-13 23:31:41", "cokotycinka3",  2, 8),
+("2025-11-13 23:35:44", "cokotycinka5",  1, 2),
+("2026-01-13 06:16:21", "fbiagent007",  5, 2)
 
 --zápasy
 INSERT INTO matches(playedAt, duration, mapId) 
